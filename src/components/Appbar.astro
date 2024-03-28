@@ -4,21 +4,19 @@ interface Props {
     nav: customObject[]
 }
 const { title, nav } = Astro.props
-
-// 将右侧导航栏输出为字符串，以方便传递
-let navElement = ''
-for (let i = 0; i < nav.length; i++) {
-    let currentLink = nav[i]
-    navElement += '<span class="item icon-external"><a href="' + currentLink.url +
-        '" target="_blank">' + currentLink.name + '</a></span>'
-}
 ---
 
 <header class="fixed flex w-full whitespace-nowrap z-50 top">
     <div class="title text-xl font-semibold">
         <a href=".">{ title }</a></div>
     <div class="grow" />
-    <div class="link h-4 leading-7" set:html={ navElement } />
+    <div class="link h-4 leading-7">
+        { nav.map(item => (
+            <span class="item icon-external">
+                <a href={ item.url } target="_blank">{ item.name }</a>
+            </span>
+        )) }
+    </div>
 </header>
 
 
