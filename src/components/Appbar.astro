@@ -50,10 +50,16 @@ const { title, nav } = Astro.props
         }
     }
 
-    // 响应式适配 ---- 移动端
+    // 响应式适配 ---- PAD
     @media screen and (max-width: 1024px) {
         :root {
             --appbar-padding-horizontal: 1em;
+            --appbar-link-display: block;
+        }
+    }
+    // 响应式适配 ---- 移动端
+    @media screen and (max-width: 750px) {
+        :root {
             --appbar-link-display: none;
         }
     }
