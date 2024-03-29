@@ -62,7 +62,6 @@ const { title, nav } = Astro.props
 <script lang="ts">
     // 监听用户是否到顶
     let barEle = document.getElementsByTagName('header')[0]
-    window.addEventListener('scroll', scroll)
     // 如果到顶加上 .top 以调整样式
     let scroll = () => {
         let mainPosition = document.getElementsByTagName('main')[0].getBoundingClientRect()
@@ -72,5 +71,6 @@ const { title, nav } = Astro.props
             barEle.classList.remove('top')
         }
     }
-    window.removeEventListener('scroll', scroll)
+    window.addEventListener('scroll', scroll)
+    // window.removeEventListener('scroll', scroll)
 </script>
