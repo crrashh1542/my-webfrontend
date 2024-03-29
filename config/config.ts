@@ -4,6 +4,9 @@ export default {
     // 网站基础信息
     site: {
         name: '云萧的咕咕客栈',
+        url: 'https://www.crrashh.com',
+        base: '/',
+        cdn: undefined,
         subtitle: 'Kotsuki Crrashh',
         suffix: ' / under building...',
         description: '以万象之不息，致不息之万象。',
