@@ -1,21 +1,23 @@
 # Crrashh Homepage
-由于[`v2`](https://github.com/crrashh1542/crash-homepage/tree/v2)时期屎山堆积严重，且UI设计并不尽如人意，故使用Astro + Tailwind完全重写v3。  
-**本分支尚未成型，不建议使用！**
-
-咕咕主页是一个基于 Astro 且可自定义的个人主页。  
-如果喜欢记得点上一个小星星！:D  
+咕咕主页是一个以“**清新、明亮**”为设计风格的开源个人主页模板，如果喜欢记得点上一个小星星！:D
 
 ![开源协议](https://img.shields.io/github/license/crrashh1542/crash-homepage)
 ![当前版本](https://img.shields.io/github/package-json/v/crrashh1542/crash-homepage)
-  
-## 💻 自定义过程
-1. 确保你的电脑上安装了 NodeJS（版本为 18.0+）。
-2. 安装 PNPM 和依赖库（已安装可跳过）
+
+> [!CAUTION]
+> 由于[`v2`](https://github.com/crrashh1542/crash-homepage/tree/v2)屎山堆积严重，且UI设计并不尽如人意，故使用Astro + Tailwind完全重写v3。
+> 
+> **本分支尚未成型，不建议使用！**
+
+## 💻 如何使用
+1. 确保你的电脑上安装了 [NodeJS 环境](https://nodejs.org)（版本 18.0+）。
+
+2. 安装 PNPM 和依赖库
 ```shell
 npm install yarn -g
 pnpm install
 ```
-3. 修改 [`/config/config.ts`](./config/config.ts) 中的站点数据为你网站的数据。你可以直接像写对象一样写在大括号里边，亦可使用 import 引入其它资源。
+3. 修改 [`/config/config.ts`](./config/config.ts) 中的站点数据为你网站的数据。你可以直接像写对象一样替换花括号里的内容，亦可使用 `import` 引入其它资源。
 4. 启动开发环境，在开发服务器中预览并编辑站点。
 ```shell
 pnpm dev
