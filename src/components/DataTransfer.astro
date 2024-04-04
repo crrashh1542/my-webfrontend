@@ -1,0 +1,18 @@
+---
+// 此组件仅限用于 Frontmatter 与页面的通信
+
+// P1 ---- 版本处理
+import { version } from '../../scripts/temp/data.json'
+---
+
+<div id="data" class="hidden"
+    data-version={ version }
+/>
+
+<script lang="ts">
+    // 获取数据
+    const glData = document.getElementById('data').dataset
+
+    // P1 ---- 版本处理
+    console.log('%c%s', 'line-height: 1.5;', 'Page built by crash-homepage ' + glData.version + '.')
+</script>

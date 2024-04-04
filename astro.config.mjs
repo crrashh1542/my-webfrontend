@@ -1,7 +1,12 @@
+// 导入依赖库
 import { defineConfig } from 'astro/config'
 import { fileURLToPath, URL } from 'node:url'
 import tailwind from '@astrojs/tailwind'
 import custConfig from './config/config'
+
+// 导入预启动项目脚本
+import prebuild from './scripts/prebuild.mjs'
+prebuild()
 
 // https://astro.build/config
 export default defineConfig({

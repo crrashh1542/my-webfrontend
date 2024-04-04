@@ -9,6 +9,7 @@ import Appbar from '@/components/Appbar.astro'
 import Banner from '@/components/Banner.astro'
 import Catalog from '@/components/Catalog.astro'
 import Footer from '@/components/Footer.astro'
+import DataTransfer from '@/components/DataTransfer.astro'
 
 // 引入页面模块
 import Links from '@/components/main/Links.astro'
@@ -36,17 +37,21 @@ import Links from '@/components/main/Links.astro'
 
 	<!-- Part 3 页脚 -->
 	<Footer content={ config.footer } />
+
+	<!-- Part 4 数据传递 -->
+	<!-- 此部分内容用于 Frontmatter 与页面 JS/TS 进行通信 -->
+	<DataTransfer />
 </Layout>
 
 <style is:global lang="less">
 	@import url('@/styles/global.less');
 
 	// 基础样式
-	* {
+	body {
 		font-family: @c-font-family;
-		main {
-			padding: var(--main-padding-top) var(--main-padding-horiziontal) 0;
-		}
+	}
+	main {
+		padding: var(--main-padding-top) var(--main-padding-horiziontal) 0;
 	}
 
 	// 响应式适配 ---- PC
