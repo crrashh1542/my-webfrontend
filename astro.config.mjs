@@ -26,12 +26,20 @@ export default defineConfig({
 
     // 生产配置
     build: {
-        assets: 'c_assets',
         assetsPrefix: custConfig.site.cdn
     },
 
-    // 引入@作为./src的alias
     vite: {
+        // 修改资源输出路径
+        build: {
+            rollupOptions: {
+                output: {
+                    assetFileNames: 'ch_assets/[name].[hash].[ext]'
+                }
+            }
+        },
+
+        // 引入@作为./src的alias
         resolve: {
             alias: {
                 '@': fileURLToPath(new URL('./src', import.meta.url)),
