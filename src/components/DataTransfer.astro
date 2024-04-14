@@ -10,9 +10,14 @@ import { version } from '../../scripts/temp/data.json'
 />
 
 <script lang="ts">
+
     // 获取数据
     const glData = document.getElementById('data').dataset
 
-    // P1 ---- 版本处理
-    console.log('%c%s', 'line-height: 1.5;', 'Page built by crash-homepage ' + glData.version + '.')
+    // P1 ---- 版本处理并输出
+    const infoStyle = 'line-height: 1.75; color: #fff;'
+    const infoStyleLeft = 'background-color: #bb364c; padding: 0 6px 0 8px; border-radius: 3px 0 0 3px;'
+    const infoStyleRight = 'background-color: #502529; padding: 0 8px 0 6px; border-radius: 0 3px 3px 0'
+    console.log('%c%s%c%s', infoStyle + infoStyleLeft, 'crash-homepage' ,
+        infoStyle + infoStyleRight, glData.version)
 </script>
