@@ -74,9 +74,10 @@ export default {
     // 页脚
     footer: {
         'copyright': '© Copyright 2022-2024 Kotsuki Crrashh. All Rights Reserved.',
-        'beian': `<a href="https://beian.miit.gov.cn" target="_blank">
-                     <img src="/miit.png" />&nbsp;&nbsp;蜀ICP备2022029657号-2</a>&nbsp;&nbsp;|&nbsp;
-                  <a href="https://icp.gov.moe/?keyword=20220551" target="_blank">
-                     <img src="/moeicp.png" />&nbsp;&nbsp;萌ICP备20220551号</a>`
+        'beian': {
+            'miit': '蜀ICP备2022029657号-2',
+            'gongan': undefined,
+            'moe': '萌ICP备20220551号'
+        }
     }
 }

@@ -1,14 +1,59 @@
 ---
 interface Props {
-    content: customObject
+    content: any
 }
 const { content } = Astro.props
-// 
+const { beian } = content
+
+// 确定哪些备案信息存在并以 bool 输出
+const checkExistence = content => {
+    if (typeof(content) === 'string'){
+        return true
+    } else {
+        return false
+    }
+}
+
+// 定义空字符串，用于接收备案信息处理后产生的 HTML 元素
+let beianElement = ''
+
+// 将备案信息处理为 HTML 元素
+const parseBeianInfo = function(){
+    // STEP1 ---- 获取哪些信息存在
+    const [isMiitExist, isGonganExist, isMoeExist] = 
+        [checkExistence(beian.miit), checkExistence(beian.gongan), checkExistence(beian.moe)]
+    // STEP2 ---- 处理 miit 信息
+    if (isMiitExist) {
+        beianElement += '<a href="https://beian.miit.gov.cn" target="_blank">'
+            + '<img src="/miit.png" alt="miit"/>&nbsp;' + beian.miit + '</a>'
+        if (isGonganExist || isMoeExist) { // 若后边还有的话，增加分隔符
+            beianElement += '&nbsp;|&nbsp;'
+        }
+    }
+    // STEP3 ---- 处理 gongan 信息
+    if (isGonganExist) {
+        const gonganRecordCode = beian.gongan.match(/<备>(\S*)<号>/)
+        beianElement += 
+            '<a href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode='
+            + gonganRecordCode + ' target="_blank"><img src="/gongan.png" '
+            + 'alt="gongan"/>&nbsp;' + beian.gongan + '</a>'
+        if (isMoeExist) {
+            beianElement += '&nbsp;|&nbsp;'
+        }
+    }
+    // STEP4 ---- 处理 moe 信息
+    if (isMoeExist) {
+        const moeKeyword = beian.moe.match(/<备>(\S*)<号>/)
+        beianElement += 
+            '<a href="https://icp.gov.moe/?keyword=' + moeKeyword + ' target=' +
+            '"_blank"><img src="/moeicp.png" alt="moe"/>&nbsp;' + beian.moe + '</a>'
+    }
+}()
 ---
 
 <footer class="text-center mt-6 py-6">
     <p>{ content.copyright }</p>
-    <p set:html={ content.beian } />
+    <p set:html={ beianElement } />
 </footer>
 
 <style lang="less">
