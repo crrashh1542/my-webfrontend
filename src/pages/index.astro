@@ -50,13 +50,12 @@ import Links from '@/components/main/Links.astro'
 		font-family: @c-font-family;
 	}
 	main {
-		padding: var(--main-padding-top) var(--main-padding-horiziontal) 0;
+		padding: 0 var(--main-padding-horiziontal);
 	}
 
 	// 响应式适配 ---- PC
 	@media screen and (min-width: 1024px) {
 		body {
-			--main-padding-top: 9em;
 			--main-padding-horiziontal: @c-layout-banner-padding;
 		}
 	}
@@ -64,7 +63,6 @@ import Links from '@/components/main/Links.astro'
 	// 响应式适配 ---- 移动端
 	@media screen and (max-width: 1024px) {
 		body {
-			--main-padding-top: 8em;
 			--main-padding-horiziontal: 2em;
 		}
 	}
