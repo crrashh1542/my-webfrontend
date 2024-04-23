@@ -51,7 +51,7 @@ const parseBeianInfo = function(){
 }()
 ---
 
-<footer class="text-center mt-6 py-6">
+<footer class="text-center mt-6 py-5">
     <p>{ content.copyright }</p>
     <p set:html={ beianElement } />
 </footer>
@@ -64,7 +64,7 @@ const parseBeianInfo = function(){
         border-top: 1px solid @c-color-bar-border;
         color: #666;
         font-size: var(--footer-text-size);
-        line-height: var(--footer-text-height);
+        line-height: 1.7;
 
         p > a:hover {
             color: @c-color-theme;
@@ -74,16 +74,14 @@ const parseBeianInfo = function(){
     // 响应式适配 ------ PC
     @media screen and (min-width: 1024px) {
         :root {
-            --footer-text-size: 16px;
-            --footer-text-height: 24px;
+            --footer-text-size: 14px;
         }
     }
 
     // 响应式适配 ------ 移动端
     @media screen and (max-width: 1024px) {
         :root {
-            --footer-text-size: 14px;
-            --footer-text-height: 24px;
+            --footer-text-size: 12px;
         }
     }
 </style>
