@@ -23,8 +23,9 @@ import Links from '@/components/main/Links.astro'
 	<main>
 		<Banner info={ config.site } social={ config.social } />
 
-		<Catalog>咱的好东西！</Catalog>
-		<Links to={ config.links } />
+		<!-- 组件1 个人链接 -->
+		<Catalog>{ config.components.links.title }</Catalog>
+		<Links to={ config.components.links.to } />
 
 		<Catalog>Coming up...</Catalog>
 		<br /><br /><br />

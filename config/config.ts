@@ -68,33 +68,41 @@ export default {
         }
     ],
 
-    // 横幅下方网站链接
-    links: [
-        // 此处的每一个对象（用大括号包起来的东西）对应一个内容区的灰色背景链接
-        //     其中 “title” 为第一行显示的粗体标题，“description” 为显示在标题下的
-        //     描述文字（可附带 HTML 标签），“url” 为链接到的个人社交媒体网页地址
-        // *你可以通过增加或减少对象的方式来调整显示的链接的个数*
-        {
-            title: '云萧的咕咕屋',
-            description: '云萧的个人博客，<s>都是有空随便写写的啊喂！</s>',
-            to: 'https://blog.crrashh.com'
-        },
-        {
-            title: 'Windows Up-to-Date',
-            description: '一个反映 Windows 实时更新状态的站点',
-            to: 'https://wutd.crrashh.com'
-        },
-        {
-            title: '云萧的咕咕盘',
-            description: '基于 Alist 的公开网盘服务',
-            to: 'https://disk.crrashh.com'
-        },
-        {
-            title: '咕咕的开放文档',
-            description: '大家都可以用的 API 和 CDN',
-            to: 'https://docs.crrashh.com'
+    // banner 横幅下的由组件组成的内容区，内容顺序分先后
+    components: {
+
+        // 个人其他网站链接
+        links: {
+            // 链接组件的标题
+            title: '咱的好东西！',
+            to: [
+                // 此处的每一个对象（用大括号包起来的东西）对应一个内容区的灰色背景链接
+                //     其中 “title” 为第一行显示的粗体标题，“description” 为显示在标题下的
+                //     描述文字（可附带 HTML 标签），“url” 为链接到的个人社交媒体网页地址
+                // *你可以通过增加或减少对象的方式来调整显示的链接的个数*
+                {
+                    title: '云萧的咕咕屋',
+                    description: '云萧的个人博客，<s>都是有空随便写写的啊喂！</s>',
+                    href: 'https://blog.crrashh.com'
+                },
+                {
+                    title: 'Windows Up-to-Date',
+                    description: '一个反映 Windows 实时更新状态的站点',
+                    href: 'https://wutd.crrashh.com'
+                },
+                {
+                    title: '云萧的咕咕盘',
+                    description: '基于 Alist 的公开网盘服务',
+                    href: 'https://disk.crrashh.com'
+                },
+                {
+                    title: '咕咕的开放文档',
+                    description: '大家都可以用的 API 和 CDN',
+                    href: 'https://docs.crrashh.com'
+                }
+            ]
         }
-    ],
+    },
 
     // 页脚
     footer: {

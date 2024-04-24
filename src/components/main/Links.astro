@@ -8,7 +8,7 @@ const { to } = Astro.props
 let linkElement = ''
 for(let i = 0; i < to.length; i++) {
     let currentLink = to[i]
-    linkElement += '<a href="' + currentLink.to + '" target="_blank" class=' + 
+    linkElement += '<a href="' + currentLink.href + '" target="_blank" class=' + 
         '"section block rounded-lg px-5 py-3 my-2 mr-4"><div class="title text-lg' + 
         ' font-semibold">' + currentLink.title + '</div><div class="description ' + 
         'text-base break-all">' + currentLink.description + '</div></a>'
