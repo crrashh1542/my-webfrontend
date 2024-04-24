@@ -1,8 +1,18 @@
 {
   "name": "crash-homepage",
   "type": "module",
-  "version": "3.0.0-beta.1",
+  "version": "3.0.0-beta.2",
+  "author": "crrashh1542 <kotsuki@crrashh.com>",
+  "homepage": "https://www.crrashh.com",
+  "license": "Apache-2.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crrashh1542/crash-homepage"
+  },
+  "bugs": {
+    "url": "https://github.com/crrashh1542/crash-homepage/issues"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
