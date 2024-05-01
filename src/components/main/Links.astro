@@ -18,7 +18,9 @@ for(let i = 0; i < to.length; i++) {
 
 <div class="links flex flex-wrap my-3" set:html={ linkElement } />
 
-<style is:global>
+<style is:global lang="less">
+    @import url('@/styles/global.less');
+
     /* 基础样式 ------ BEGIN */
     .section {
         background-color: #f7f7f7;
@@ -35,7 +37,7 @@ for(let i = 0; i < to.length; i++) {
     }
 
     .section:hover {
-        border: 1px solid #fcea78;
+        border: 1px solid @c-color-theme;
     }
     /* 基础样式 -------- END */
 

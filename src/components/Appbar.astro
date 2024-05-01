@@ -1,27 +1,31 @@
 ---
 interface Props {
-    title: string
-    nav: customObject[]
+    title: string;
+    nav: customObject[];
 }
-const { title, nav } = Astro.props
+const { title, nav } = Astro.props;
 ---
 
 <header class="fixed flex w-full whitespace-nowrap z-50 top">
     <div class="title text-xl font-semibold">
-        <a href=".">{ title }</a></div>
-    <div class="grow" />
+        <a href=".">{title}</a>
+    </div>
+    <div class="grow"></div>
     <div class="link h-4 leading-7">
-        { nav.map(item => (
-            <span class="item icon-external">
-                <a href={ item.url } target="_blank">{ item.name }</a>
-            </span>
-        )) }
+        {
+            nav.map((item) => (
+                <span class="item icon-external px-4">
+                    <a href={item.url} target="_blank">
+                        {item.name}
+                    </a>
+                </span>
+            ))
+        }
     </div>
 </header>
 
-
 <style is:global lang="less">
-    @import url('@/styles/global.less');
+    @import url("@/styles/global.less");
 
     // 基础样式
     header {
@@ -29,19 +33,34 @@ const { title, nav } = Astro.props
         background-color: #fff;
         // backdrop-filter: blur(2px);
 
-        .title:hover { color: var(--c-color-theme); }
-        .item:hover { color: var(--c-color-theme); }
+        .title:hover {
+            color: @c-color-theme-dark;
+        }
         .link {
+            // .link 在手机上不显示
             display: var(--appbar-link-display);
-            .item {
-                padding: 0 16px;
+            // 使 .link 处于 hover 状态时后边生成色块
+            .item:hover {
+                a { position: relative; }
+                a::before {
+                    content: '';
+                    position: absolute;
+                    z-index: -10;
+                    top: 60%;
+                    left: -25%;
+                    height: 60%;
+                    width: 150%;
+                    background-color: @c-color-theme-light;
+                }
             }
         }
     }
+
+    // 当不在页顶时，给 appbar 底部加条线
     header:not(.top) {
         border-bottom: 1px solid @c-color-bar-border;
     }
-
+    
     // 响应式适配 ---- PC
     @media screen and (min-width: 1024px) {
         :root {
@@ -67,16 +86,18 @@ const { title, nav } = Astro.props
 
 <script lang="ts">
     // 监听用户是否到顶
-    let barEle = document.getElementsByTagName('header')[0]
+    let barEle = document.getElementsByTagName("header")[0];
     // 如果到顶加上 .top 以调整样式
     let scroll = () => {
-        let mainPosition = document.getElementsByTagName('main')[0].getBoundingClientRect()
+        let mainPosition = document
+            .getElementsByTagName("main")[0]
+            .getBoundingClientRect();
         if (mainPosition.y == 0) {
-            barEle.classList.add('top')
+            barEle.classList.add("top");
         } else {
-            barEle.classList.remove('top')
+            barEle.classList.remove("top");
         }
-    }
-    window.addEventListener('scroll', scroll)
+    };
+    window.addEventListener("scroll", scroll);
     // window.removeEventListener('scroll', scroll)
 </script>
