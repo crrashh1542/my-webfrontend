@@ -3,20 +3,16 @@ interface Props {
     to: customObject[]
 }
 const { to } = Astro.props
-
-// // 将右侧导航栏输出为字符串，以方便传递
-let linkElement = ''
-for(let i = 0; i < to.length; i++) {
-    let currentLink = to[i]
-    linkElement += '<a href="' + currentLink.href + '" target="_blank" class=' + 
-        '"section block rounded-lg px-5 py-3 my-2 mr-4"><div class="title text-lg' + 
-        ' font-semibold">' + currentLink.title + '</div><div class="description ' + 
-        'text-base break-all">' + currentLink.description + '</div></a>'
-}
-
 ---
 
-<div class="links flex flex-wrap my-3" set:html={ linkElement } />
+<div class="links flex flex-wrap my-3">
+    { to.map(item => (
+        <a href={ item.href } target="_blank" class="section block rounded-lg px-5 py-3 my-2 mr-4">
+            <div class="title text-lg font-semibold">{ item.title }</div>
+            <div class="description text-base break-all">{ item.description }</div>
+        </a>
+    )) }
+</div>
 
 <style is:global lang="less">
     @import url('@/styles/global.less');
