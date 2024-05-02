@@ -1,0 +1,52 @@
+---
+// 引入数据
+interface Props {
+    content: customObject[]
+}
+
+import Card from './Card.astro'
+const { content } = Astro.props
+---
+
+<div class="property-wrapper my-3">
+    { content.map(item => (
+        <Card class="property">
+            <div class="title text-lg">{ item.title }</div>
+            <div class="status relative rounded-full w-full h-2 mt-3 mb-4"
+                 data-tooltip={ item.tip }>
+                <div class="progress absolute h-full rounded-full t-0 l-0"
+                     style={'width: ' + item.value + '%;'}>
+                </div>
+            </div>
+        </Card>
+    )) }
+</div>
+
+<style lang="less">
+    @import url('@/styles/global.less');
+
+    .property-wrapper{
+        .status {
+            background-color: darken(@c-color-card-bg, 10%);
+            .progress {
+                background-color: @c-color-theme-offset;
+            }
+        }
+        .status::before {
+            content: attr(data-tooltip); // tooltip 的内容从 data-tooltip 中取得
+            visibility: hidden; // 默认情况下不显示 tooltip，只在 hover 时显示
+            position: absolute;
+            display: block;
+            left: 20px;
+            top: 12px;
+            background-color: rgba(0, 0, 0, .5);
+            color: #fff;
+            z-index: 60;
+            font-size: 14px;
+            padding: 4px 6px;
+        }
+        .status:hover::before {
+            visibility: visible;
+        }
+    }
+</style>

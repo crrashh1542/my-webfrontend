@@ -13,6 +13,7 @@ import DataTransfer from '@/components/DataTransfer.astro'
 
 // 引入页面模块
 import Links from '@/components/main/Links.astro'
+import Properties from '@/components/main/Properties.astro'
 ---
 
 <Layout title={ config.site.name + config.site.suffix } description={ config.site.seoDescription }>
@@ -27,6 +28,11 @@ import Links from '@/components/main/Links.astro'
 		<div class="component-wrapper">
 			<Catalog>{ config.components.links.title }</Catalog>
 			<Links to={ config.components.links.to } />
+		</div>
+
+		<div class="component-wrapper">
+			<Catalog>{ config.components.properties.title }</Catalog>
+			<Properties content={ config.components.properties.content } />
 		</div>
 
 		<div class="component-wrapper">
