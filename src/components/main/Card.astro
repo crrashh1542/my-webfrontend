@@ -1,0 +1,29 @@
+<div class="card inline-block rounded-lg px-5 py-3 my-2 mr-4">
+    <slot />
+</div>
+
+<style lang="less">
+    @import url('@/styles/global.less');
+
+    .card {
+        background-color: @c-color-card-bg;
+        border: 1px solid @c-color-card-border;
+        width: var(--c-card-width);
+    }
+    .card:hover {
+        border: 1px solid @c-color-theme;
+    }
+
+    /* 响应式适配 ------- BEGIN */
+    @media screen and (max-width: 1280px) { /* 移动端 */
+        :root {
+            --c-card-width: 96%;
+        }
+    }
+    @media screen and (min-width: 1280px) { /* 桌面端 */
+        :root {
+            --c-card-width: 46%;
+        }
+    }
+    /* 响应式适配 --------- END */
+</style>

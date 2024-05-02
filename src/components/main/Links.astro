@@ -2,52 +2,25 @@
 interface Props {
     to: customObject[]
 }
+
+import Card from './Card.astro'
 const { to } = Astro.props
 ---
 
 <div class="links flex flex-wrap my-3">
     { to.map(item => (
-        <a href={ item.href } target="_blank" class="section block rounded-lg px-5 py-3 my-2 mr-4">
-            <div class="title text-lg font-semibold">{ item.title }</div>
-            <div class="description text-base break-all">{ item.description }</div>
-        </a>
+        <Card>
+            <a href={ item.href } target="_blank" class="block">
+                <div class="title text-lg font-semibold">{ item.title }</div>
+                <div class="description text-base break-all">{ item.description }</div>
+            </a>
+        </Card>
     )) }
 </div>
 
-<style is:global lang="less">
-    @import url('@/styles/global.less');
-
-    /* 基础样式 ------ BEGIN */
-    .section {
-        background-color: #f7f7f7;
-        border: 1px solid #f2f2f2;
-        width: var( --c-link-section-width);
+<style lang="less">
+    .links {
+        .title { line-height: 42px; }
+        .description { height: calc(2.5 * 24px); }
     }
-
-    .section > .title {
-        line-height: 42px;
-    }
-
-    .section > .description {
-        height: calc(2.5 * 24px);
-    }
-
-    .section:hover {
-        border: 1px solid @c-color-theme;
-    }
-    /* 基础样式 -------- END */
-
-
-    /* 响应式适配 ------- BEGIN */
-    @media screen and (max-width: 1280px) { /* 移动端 */
-        :root {
-            --c-link-section-width: 96%;
-        }
-    }
-    @media screen and (min-width: 1280px) { /* 桌面端 */
-        :root {
-            --c-link-section-width: 46%;
-        }
-    }
-    /* 响应式适配 --------- END */
 </style>
