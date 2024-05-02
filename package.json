@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.1.0",
-    "astro": "^4.5.15",
+    "astro": "^4.7.1",
     "less": "^4.2.0",
     "normalize.css": "^8.0.1",
     "sharp": "^0.33.3",
