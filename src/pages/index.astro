@@ -24,15 +24,19 @@ import Links from '@/components/main/Links.astro'
 		<Banner info={ config.site } social={ config.social } />
 
 		<!-- 组件1 个人链接 -->
-		<Catalog>{ config.components.links.title }</Catalog>
-		<Links to={ config.components.links.to } />
+		<div class="component-wrapper">
+			<Catalog>{ config.components.links.title }</Catalog>
+			<Links to={ config.components.links.to } />
+		</div>
 
-		<Catalog>Coming up...</Catalog>
-		<br /><br /><br />
-		<h2 class="text-center font-semibold text-3xl">更多组件正在开发</h2>
-		<br />
-		<p class="text-center">永远相信美好的事情即将发生</p>
-		<br /><br /><br />
+		<div class="component-wrapper">
+			<Catalog>Coming up...</Catalog>
+			<br /><br /><br />
+			<h2 class="text-center font-semibold text-3xl">更多组件正在开发</h2>
+			<br />
+			<p class="text-center">永远相信美好的事情即将发生</p>
+			<br /><br /><br />
+		</div>
 	</main>
 
 	<!-- Part 3 页脚 -->
@@ -52,6 +56,10 @@ import Links from '@/components/main/Links.astro'
 	}
 	main {
 		padding: 0 var(--main-padding-horiziontal);
+
+		.component-wrapper {
+			margin-top: 1.8rem;
+		}
 	}
 
 	// 响应式适配 ---- PC
