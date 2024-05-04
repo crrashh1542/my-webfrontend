@@ -10,7 +10,7 @@ const { content } = Astro.props
 
 <div class="property-wrapper">
     { content.map(item => (
-        <Card class="property">
+        <Card isMulti="true">
             <div class="title text-lg">{ item.title }</div>
             <div class="status relative rounded-full w-full h-2 mt-3 mb-4"
                  data-tooltip={ item.tip }>
