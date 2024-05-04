@@ -5,14 +5,27 @@
  * @version 1.0
  */
 
-// STEP1 -------- 导入依赖
+// STEP1 -------- 导入依赖和数据
 import fs from 'node:fs'
 import childProcess from 'node:child_process'
+import packageData from '../package.json'
 
 // STEP2 -------- 获取项目版本
+
 const getVer = () => {
-   const version = childProcess.execSync(
-        'git describe --tags', {'encoding': 'utf8'}).split('\n')[0]
+   // 首先判断 git 环境是否存在
+   let version
+   const isGitExists = fs.existsSync('.git')
+   if (isGitExists) {
+      // 若存在，则使用从 git 获取的版本
+      console.log('[prebuild] 检测到 git 环境')
+      version = childProcess.execSync(
+         'git describe --tags', {'encoding': 'utf8'}).split('\n')[0]
+   } else {
+      // 若不存在，则设定为 package.json 中的值
+      console.log('[prebuild] 未检测到 git 环境')
+      version = 'v' + packageData.version
+   }
    console.log('[prebuild] 已获取当前项目版本：' + version)
    return version
 }
