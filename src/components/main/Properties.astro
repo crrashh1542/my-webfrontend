@@ -11,8 +11,14 @@ const { content } = Astro.props
 <div class="property-wrapper">
     { content.map(item => (
         <Card isMulti="true">
-            <div class="title text-lg">{ item.title }</div>
-            <div class="status relative rounded-full w-full h-2 mt-3 mb-4"
+            {/* 标题栏 */}
+            <div class="title text-lg flex">
+                <span>{ item.title }</span>
+                <span class="grow"></span>
+                <span class="value text-sm rounded-full">{ item.value }%</span>
+            </div>
+            {/* 进度栏 */}
+            <div class="status relative rounded-full w-full h-2 mt-2 mb-4"
                  data-tooltip={ item.tip }>
                 <div class="progress absolute h-full rounded-full t-0 l-0"
                      style={'width: ' + item.value + '%;'}>
@@ -25,28 +31,47 @@ const { content } = Astro.props
 <style lang="less">
     @import url('@/styles/global.less');
 
-    .property-wrapper{
+    .property-wrapper {
+
+        .title {
+            line-height: 42px;
+
+            .value {
+                margin: 8px 0;
+                padding: 2.5px 6px;
+                background-color: lighten(@c-color-theme, 15%);
+                border: 1px solid @c-color-theme;
+            }
+        }
+
         .status {
             background-color: darken(@c-color-card-bg, 10%);
+
             .progress {
                 background-color: @c-color-theme-offset;
             }
         }
+        
         .status::before {
             content: attr(data-tooltip); // tooltip 的内容从 data-tooltip 中取得
-            visibility: hidden; // 默认情况下不显示 tooltip，只在 hover 时显示
+            opacity: 0; // 默认情况下不显示 tooltip，只在 hover 时显示
             position: absolute;
-            display: block;
-            left: 20px;
-            top: 12px;
+            top: 6px; // 初始时位于元素上，鼠标上移出现 tooltip 下沉+渐变效果
+            left: 1em;
+            margin: auto;
+            z-index: 60;
             background-color: rgba(0, 0, 0, .5);
             color: #fff;
-            z-index: 60;
             font-size: 14px;
-            padding: 4px 6px;
+            padding: 7.5px 10px;
+            border-radius: 4px;
+            max-width: 200%;
+            transition: top .25s, opacity .25s; // 过渡透明度
         }
         .status:hover::before {
-            visibility: visible;
+            opacity: 1;
+            top: 12px;
+            transition: top .25s, opacity .25s;
         }
     }
 </style>
