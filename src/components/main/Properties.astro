@@ -8,7 +8,7 @@ import Card from './Card.astro'
 const { content } = Astro.props
 ---
 
-<div class="property-wrapper my-3">
+<div class="property-wrapper">
     { content.map(item => (
         <Card class="property">
             <div class="title text-lg">{ item.title }</div>
