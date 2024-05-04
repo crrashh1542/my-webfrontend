@@ -86,11 +86,19 @@ export default {
     // banner 横幅下的由组件组成的内容区，内容顺序分先后
     components: {
 
+        // GitHub Charts
+        ghChart: {
+            // 贡献表的标题
+            title: '今天咕咕咕了没！',
+            // 此处填写 GitHub 用户名
+            username: 'crrashh1542'
+        },
+
         // 个人其他网站链接
         links: {
 
             // 链接组件的标题
-            title: '咱的好东西！',
+            title: '咱的好东西',
 
             to: [
                 // 此处的每一个对象（用大括号包起来的东西）对应一个内容区的灰色背景链接

@@ -1,0 +1,13 @@
+---
+interface Props {
+    username: string
+}
+const { username } = Astro.props
+import Card from './Card.astro'
+---
+
+<Card isMulti>
+    <img src={ 'https://ghchart.rshah.org/f59f17/' + username }
+         alt="crrashh1542's GitHub chart"
+         class="block m-auto overflow-x-scroll" />
+</Card> 

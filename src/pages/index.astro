@@ -13,6 +13,7 @@ import DataTransfer from '@/components/DataTransfer.astro'
 
 // 引入页面模块
 import Links from '@/components/main/Links.astro'
+import GhChart from '@/components/main/GhChart.astro'
 import Properties from '@/components/main/Properties.astro'
 ---
 
@@ -23,6 +24,12 @@ import Properties from '@/components/main/Properties.astro'
 	<!-- Part 2 主体  -->
 	<main>
 		<Banner info={ config.site } social={ config.social } />
+
+		<!-- 组件1 GitHub Chart -->
+		<div class="component-wrapper">
+			<Catalog>{ config.components.ghChart.title }</Catalog>
+			<GhChart username={ config.components.ghChart.username }></GhChart>
+		</div>
 
 		<!-- 组件1 个人链接 -->
 		<div class="component-wrapper">
