@@ -10,13 +10,16 @@ const { content } = Astro.props
 
 <div class="property-wrapper">
     { content.map(item => (
-        <Card isMulti="true">
+        <Card isMulti="true" customClass="">
+
             {/* 标题栏 */}
             <div class="title text-lg flex">
                 <span>{ item.title }</span>
                 <span class="grow"></span>
                 <span class="value text-sm rounded-full">{ item.value }%</span>
+
             </div>
+
             {/* 进度栏 */}
             <div class="status relative rounded-full w-full h-2 mt-2 mb-4"
                  data-tooltip={ item.tip }>
@@ -24,6 +27,7 @@ const { content } = Astro.props
                      style={'width: ' + item.value + '%;'}>
                 </div>
             </div>
+            
         </Card>
     )) }
 </div>

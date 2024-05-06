@@ -2,16 +2,17 @@
 // 若要设定需要一行显示多个卡片，则需加上 isMulti="true"
 interface Props {
     isMulti: any
+    customClass: string
 }
 // 从 isMulti 内容判断是否真的需要设置为一行多列
-const { isMulti } = Astro.props
-// 初始化卡片的显示状态为 block
-let cardDisplay = 'block'
+const { isMulti, customClass } = Astro.props
+// 初始化卡片的显示状态为 block，最后留个空格给 customClass
+let cardDisplay = 'block '
 if (isMulti == 'true') {
-    cardDisplay = 'inline-block'
+    cardDisplay = 'inline-block '
 }
 ---
-<div class={ 'card rounded-lg px-5 py-3 my-2 mr-4 ' + cardDisplay }>
+<div class={ 'card rounded-lg px-5 py-3 my-2 mr-4 ' + cardDisplay + customClass }>
     <slot />
 </div>
 
