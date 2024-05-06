@@ -6,26 +6,29 @@ const { username } = Astro.props;
 import Card from "./Card.astro";
 ---
 
-<Card isMulti="false">
-    <div class="placeholder py-2 relative">
+<Card isMulti="false" customClass="overflow-x-scroll">
+    
         <!-- 图片本体 -->
-        <img src={"https://ghchart.rshah.org/f59f17/" + username}
-             alt="crrashh1542's GitHub chart"
-             id="gh-chart"
-             class="hidden m-auto overflow-x-scroll" />
+        <div class="img-placeholder py-2 hidden" id="gh-chart">
+            <img src={"https://ghchart.rshah.org/f59f17/" + username}
+                 alt="crrashh1542's GitHub chart"
+                 class="m-auto" id="gh-chart-img" />
+        </div>
 
         <!-- 加载动画，移植自 MDUI v1 -->
         <!-- Copyright (C) 2016-2021 zdhxiong | Licensed under MIT -->
-        <div class="mdui-spinner absolute justify-center" id="gh-spinner">
-            <div class="mdui-spinner-layer">
-                <div class="mdui-spinner-circle-clipper mdui-spinner-left">
-                    <div class="mdui-spinner-circle"></div>
-                </div>
-                <div class="mdui-spinner-gap-patch">
-                    <div class="mdui-spinner-circle"></div>
-                </div>
-                <div class="mdui-spinner-circle-clipper mdui-spinner-right">
-                    <div class="mdui-spinner-circle"></div>
+        <div class="spinner-placeholder py-2 relative" id="gh-spinner">
+            <div class="mdui-spinner absolute">
+                <div class="mdui-spinner-layer">
+                    <div class="mdui-spinner-circle-clipper mdui-spinner-left">
+                        <div class="mdui-spinner-circle"></div>
+                    </div>
+                    <div class="mdui-spinner-gap-patch">
+                        <div class="mdui-spinner-circle"></div>
+                    </div>
+                    <div class="mdui-spinner-circle-clipper mdui-spinner-right">
+                        <div class="mdui-spinner-circle"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -35,12 +38,22 @@ import Card from "./Card.astro";
 <style lang="less">
     @import url("@/styles/global.less");
 
-    // 经过测定，该 API 返回的 svg 高度为 102px
-    .placeholder {
+    // 使得 ghChart 图像在移动端场景下可被拖动
+    .card {
+        overflow-x: hidden;
+    }
+    // 经过测定，该 API 返回的 svg 宽度为 603px，高度为 102px
+    img {
+        width: 603px;
+        height: 102px;
+    }
+    .img-placeholder {
+        width: 603px; // 当且仅当 img-placeholder 为 603px 时，img 宽度才正确
         height: 118px; // 102+2*2*4
-        img {
-            height: 102px;
-        }
+    }
+    .spinner-placeholder {
+        width: 100%; // 该 placeholder 需要让 spinner 位于页面中心，故必须设定为 100%
+        height: 118px; // 102+2*2*4
     }
 
     // 以下内容为加载动画，移植自 MDUI v1
@@ -148,12 +161,15 @@ import Card from "./Card.astro";
 
 <script>
     // 当 img 加载成功时为 display 为 block（即加上 block 类名），spinner 为 none（类名 hidden）
-    const [ghChart, ghSpinner] = 
-        [document.getElementById('gh-chart'), document.getElementById('gh-spinner')]
+    const [ghChart, ghChartImg, ghSpinner] = 
+        [document.getElementById('gh-chart'), document.getElementById('gh-chart-img'),
+         document.getElementById('gh-spinner')]
     // 判断是否加载完成
-    ghChart.onload = () => {
+    ghChartImg.onload = () => {
+        // 显示 gh-chart 的 placeholder
         ghChart.classList.remove('hidden')
         ghChart.classList.add('block')
+        // 隐藏 gh-spinner 的 placeholder
         ghSpinner.classList.add('hidden')
     }
 </script>
