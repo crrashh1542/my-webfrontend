@@ -1,15 +1,16 @@
 ---
 interface Props {
-    username: string;
+    username: string
 }
-const { username } = Astro.props;
-import Card from "./Card.astro";
+const { username } = Astro.props
+import Card from './Card.astro'
 ---
 
-<Card isMulti="false" customClass="overflow-x-scroll">
+                              <!-- 此处见第 40 行 -->
+<Card isMulti="false" customClass="gh-chart-card">
     
         <!-- 图片本体 -->
-        <div class="img-placeholder py-2 hidden" id="gh-chart">
+        <div class="img-placeholder py-2 hidden m-auto" id="gh-chart">
             <img src={"https://ghchart.rshah.org/f59f17/" + username}
                  alt="crrashh1542's GitHub chart"
                  class="m-auto" id="gh-chart-img" />
@@ -34,6 +35,19 @@ import Card from "./Card.astro";
         </div>
     </div>
 </Card>
+
+<style is:global>
+    /* 经测试，页面宽度 740px 是 img 占满 card 的临界点 */
+    .gh-chart-card {
+        overflow-x: var(--ch-ghchart-overflow);
+    }
+    @media screen and (max-width: 740px) {
+        :root { --ch-ghchart-overflow: scroll; }
+    }
+    @media screen and (min-width: 740px) {
+        :root { --ch-ghchart-overflow: hidden; }
+    }
+</style>
 
 <style lang="less">
     @import url("@/styles/global.less");
