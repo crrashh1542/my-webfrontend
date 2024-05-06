@@ -26,21 +26,28 @@ import Properties from '@/components/main/Properties.astro'
 		<Banner info={ config.site } social={ config.social } />
 
 		<!-- 组件1 GitHub Chart -->
-		<div class="component-wrapper">
-			<Catalog>{ config.components.ghChart.title }</Catalog>
-			<GhChart username={ config.components.ghChart.username }></GhChart>
-		</div>
+		{ config.components.ghChart.isEnabled && 
+			<div class="component-wrapper">
+				<Catalog>{ config.components.ghChart.title }</Catalog>
+				<GhChart username={ config.components.ghChart.username }></GhChart>
+			</div>
+		}
 
-		<!-- 组件1 个人链接 -->
-		<div class="component-wrapper">
-			<Catalog>{ config.components.links.title }</Catalog>
-			<Links to={ config.components.links.to } />
-		</div>
+		<!-- 组件2 个人链接 -->
+		{ config.components.links.isEnabled &&
+			<div class="component-wrapper">
+				<Catalog>{ config.components.links.title }</Catalog>
+				<Links to={ config.components.links.to } />
+			</div>
+		}
 
-		<div class="component-wrapper">
-			<Catalog>{ config.components.properties.title }</Catalog>
-			<Properties content={ config.components.properties.content } />
-		</div>
+		<!-- 组件3 个人属性 -->
+		{ config.components.properties.isEnabled &&
+			<div class="component-wrapper">
+				<Catalog>{ config.components.properties.title }</Catalog>
+				<Properties content={ config.components.properties.content } />
+			</div>
+		}
 
 		<div class="component-wrapper">
 			<Catalog>Coming up...</Catalog>
