@@ -68,8 +68,12 @@ import avatar from '@/assets/images/avatar.jpg'
                     font-size: var(--banner-button-size);
                     padding: var(--banner-button-padding);
                     background: @c-color-theme-light;
-                    box-shadow: 0 0 3px @c-color-theme;
-                    backdrop-filter: blur(5px);
+                    box-shadow: 0 0 4px @c-color-theme-light;
+                    transition: box-shadow .4s;
+                }
+                .button:hover {
+                    box-shadow: 0 0 4px @c-color-theme-dark;
+                    transition: box-shadow .4s;
                 }
             }
         }
@@ -87,7 +91,7 @@ import avatar from '@/assets/images/avatar.jpg'
             --banner-desc-top: 16px;
             --banner-social-top: 40px;
             --banner-button-size: 28px;
-            --banner-button-padding: 12px;
+            --banner-button-padding: 13px;
         }
     }
 

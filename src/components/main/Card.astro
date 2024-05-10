@@ -23,9 +23,12 @@ if (isMulti == 'true') {
     .card {
         background-color: @c-color-card-bg;
         border: 1px solid @c-color-card-border;
+        transition: border .3s, box-shadow .3s;
     }
     .card:hover {
         border: 1px solid @c-color-theme;
+        box-shadow: 0 0 4px @c-color-theme;
+        transition: border .3s, box-shadow .3s;
     }
     // 设定为 inline-display 时，需要重新设定宽度，防止"缩水”
     .card.inline-block {
