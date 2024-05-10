@@ -46,12 +46,10 @@ export default {
     ],
     components: {
         ghChart: {
-            isEnabled: true,
             title: '今天咕咕咕了没！',
             username: 'crrashh1542'
         },
         links: {
-            isEnabled: true,
             title: '咱的好东西',
             to: [
                 {
@@ -77,7 +75,6 @@ export default {
             ]
         },
         properties: {
-            isEnabled: true,
             title: '咕咕属性值',
             content: [
                 {
