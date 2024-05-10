@@ -17,7 +17,7 @@
 npm install yarn -g
 pnpm install
 ```
-3. 修改 [`/config/config.ts`](./config/config.ts) 中的站点数据为你网站的数据。你可以直接像写对象一样替换花括号里的内容，亦可使用 `import` 引入其它资源。
+3. 参考[咕咕主页配置说明](./config/README.md)对站点进行定制化。
 4. 启动开发环境，在开发服务器中预览并编辑站点。
 ```shell
 pnpm dev
