@@ -22,6 +22,10 @@ const [isGhChartEnabled, isLinksEnabled, isPropertiesEnabled] =
 	 config.components.links.isEnabled === true || config.components.links.isEnabled === undefined,
 	 config.components.properties.isEnabled === true || config.components.properties.isEnabled === undefined
 	]
+
+// 设置 properties 组件默认值
+const [isPropsEnablePercent] =
+	[config.components.properties.isEnablePercent === true || config.components.properties.isEnablePercent === undefined]
 ---
 
 <Layout title={ config.site.name + config.site.suffix } description={ config.site.seoDescription }>
@@ -52,7 +56,8 @@ const [isGhChartEnabled, isLinksEnabled, isPropertiesEnabled] =
 		{ isPropertiesEnabled &&
 			<div class="component-wrapper">
 				<Catalog>{ config.components.properties.title }</Catalog>
-				<Properties content={ config.components.properties.content } />
+				<Properties content={ config.components.properties.content }
+							isEnableProperties={ isPropsEnablePercent } />
 			</div>
 		}
 

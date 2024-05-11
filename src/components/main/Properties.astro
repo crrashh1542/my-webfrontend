@@ -1,11 +1,12 @@
 ---
 // 引入数据
 interface Props {
-    content: customObject[]
+    content: customObject[],
+    isEnableProperties: boolean
 }
 
 import Card from './Card.astro'
-const { content } = Astro.props
+const { content, isEnableProperties } = Astro.props
 ---
 
 <div class="property-wrapper">
@@ -14,9 +15,13 @@ const { content } = Astro.props
 
             {/* 标题栏 */}
             <div class="title text-lg flex">
+                {/* 左上角小标题 */}
                 <span>{ item.title }</span>
-                <span class="grow"></span>
-                <span class="value text-sm rounded-full">{ item.value }%</span>
+                { /* 右上角百分数 */
+                    isEnableProperties &&
+                    <span class="grow"></span>
+                    <span class="value text-sm rounded-full">{ item.value }%</span>
+                }
 
             </div>
 
