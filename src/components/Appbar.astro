@@ -39,18 +39,28 @@ const { title, nav } = Astro.props;
         .link {
             // .link 在手机上不显示
             display: var(--appbar-link-display);
-            // 使 .link 处于 hover 状态时后边生成色块
-            .item:hover {
+
+            // 设置链接初始样式，实现鼠标悬停色块下滑的过渡动画
+            .item {
                 a { position: relative; }
                 a::before {
                     content: '';
                     position: absolute;
                     z-index: -10;
-                    top: 60%;
+                    top: 50%;
                     left: -25%;
-                    height: 60%;
+                    height: 0;
                     width: 150%;
                     background-color: @c-color-theme-light;
+                    transition: height 0.2s;
+                }
+
+            }
+            // 使 .link 处于 hover 状态时后边生成色块
+            .item:hover {
+                a::before {
+                    height: 75%;
+                    transition: height 0.2s;
                 }
             }
         }
