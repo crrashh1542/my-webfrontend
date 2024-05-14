@@ -34,7 +34,10 @@ export default defineConfig({
         build: {
             rollupOptions: {
                 output: {
-                    assetFileNames: 'ch_assets/[name].[hash].[ext]'
+                    hashCharacters: 'hex',
+                    assetFileNames: 'ch_assets/[name].[hash].[ext]',
+                    entryFileNames: 'ch_assets/[name].[hash].js',
+                    chunkFileNames: 'ch_assets/[name].[hash].js'
                 }
             }
         },
