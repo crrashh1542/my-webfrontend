@@ -9,7 +9,7 @@ const { to } = Astro.props
 
 <div class="links">
     { to.map(item => (
-        <Card isMulti="true" customClass="">
+        <Card customClass="">
             <a href={ item.href } target="_blank" class="block">
                 <div class="title text-lg font-semibold">{ item.title }</div>
                 <div class="description text-base break-all">{ item.description }</div>

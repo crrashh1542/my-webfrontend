@@ -1,18 +1,12 @@
 ---
 // 若要设定需要一行显示多个卡片，则需加上 isMulti="true"
 interface Props {
-    isMulti: any
     customClass: string
 }
 // 从 isMulti 内容判断是否真的需要设置为一行多列
-const { isMulti, customClass } = Astro.props
-// 初始化卡片的显示状态为 block，最后留个空格给 customClass
-let cardDisplay = 'block '
-if (isMulti == 'true') {
-    cardDisplay = 'inline-block '
-}
+const { customClass } = Astro.props
 ---
-<div class={ 'card rounded-lg px-5 py-3 my-2 mr-4 ' + cardDisplay + customClass }>
+<div class={ 'card rounded-lg px-5 py-3 my-2 mr-4 inline-block '  + customClass }>
     <slot />
 </div>
 
@@ -24,26 +18,28 @@ if (isMulti == 'true') {
         background-color: @c-color-card-bg;
         border: 1px solid @c-color-card-border;
         transition: border .3s, box-shadow .3s;
+        width: var(--c-card-width);
     }
     .card:hover {
         border: 1px solid @c-color-theme;
         box-shadow: 0 0 4px @c-color-theme;
         transition: border .3s, box-shadow .3s;
     }
-    // 设定为 inline-display 时，需要重新设定宽度，防止"缩水”
-    .card.inline-block {
-        width: var(--c-card-width);
+    // 此处提供一个 w-full 用于覆盖 Tailwind 的 w-full
+    // 因为当操作 Card 组件时需要算上右侧的 8px 外边距，否则不对齐
+    .card.w-full {
+        width: calc(100% - 8px);
     }
 
     /* 响应式适配 ------- BEGIN */
     @media screen and (max-width: 1280px) { /* 移动端 */
         :root {
-            --c-card-width: 96%;
+            --c-card-width: calc(100% - 1.5rem);
         }
     }
     @media screen and (min-width: 1280px) { /* 桌面端 */
         :root {
-            --c-card-width: 46%;
+            --c-card-width: calc(50% - 1.15rem);
         }
     }
     /* 响应式适配 --------- END */
