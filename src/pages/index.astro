@@ -29,10 +29,13 @@ const [isPropsEnablePercent] =
 ---
 
 <Layout title={ config.site.name + config.site.suffix } description={ config.site.seoDescription }>
-	<!-- Part 1 顶栏 -->
+   <!-- Part 1 背景图滤镜  -->
+   <div class="bg-filter fixed h-full w-full t-0 l-0"></div>
+
+	<!-- Part 2 顶栏 -->
 	<Appbar title={ config.site.name } nav={ config.nav } />
 
-	<!-- Part 2 主体  -->
+	<!-- Part 3 主体内容 -->
 	<main>
 		<Banner info={ config.site } social={ config.social } />
 
@@ -71,10 +74,10 @@ const [isPropsEnablePercent] =
 		</div>
 	</main>
 
-	<!-- Part 3 页脚 -->
+	<!-- Part 4 页脚 -->
 	<Footer content={ config.footer } />
 
-	<!-- Part 4 数据传递 -->
+	<!-- Part 5 数据传递 -->
 	<!-- 此部分内容用于 Frontmatter 与页面 JS/TS 进行通信 -->
 	<DataTransfer />
 </Layout>
@@ -85,7 +88,18 @@ const [isPropsEnablePercent] =
 	// 基础样式
 	body {
 		font-family: @c-font-family;
+      background: @c-bg;
+      background-size: cover;
+      background-attachment: fixed;
+
+      .bg-filter {
+         background: rgba(255, 255, 255, @c-bg-opacity);
+         z-index: -98;
+         backdrop-filter: @c-bg-filter;
+         --webkit-backdrop-filter: @c-bg-filter;
+      }
 	}
+
 	main {
 		padding: 0 var(--main-padding-horiziontal);
 

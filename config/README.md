@@ -58,10 +58,12 @@ config.ts 是咕咕主页的内容配置文件，按照下边对对象属性的�
 
 ## config.less
 config.less 是咕咕主页的主题和样式配置文件，按照下边对变量的解释，开始定制你的样式吧！(`ヮ´ )
-
 #### 颜色相关
 - `ch-color-theme`：主题色
 - `ch-color-theme-offset`：偏移的主题色，用于标题渐变等
-
+#### 背景相关
+- `ch-bg`：主页背景，支持 [CSS 的 `background` 属性](https://developer.mozilla.org/zh-CN/docs/Web/CSS/background)所支持的所有类型的值。
+- `ch-bg-opacity`：主页背景的透明度，从 0 到 1。
+- `ch-bg-filter`：主页背景的滤镜（如模糊处理等），支持 [CSS 的 `backdrop-filter` 属性](https://developer.mozilla.org/zh-CN/docs/Web/CSS/backdrop-filter)所支持的所有类型的值。
 #### 字体相关
-- `ch-font-family`：页面使用的字体
+- `ch-font-family`：页面使用的字体，如果需要引用其它字体请自行 import。

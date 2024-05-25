@@ -1,6 +1,6 @@
 @charset 'utf-8';
 /** 此样式表用于设定全局变量
- *  Version: 1.0-dev / Date: 2024-03-03
+ *  Version: 1.0-dev / Date: 2024-05-26
  * 
  *  注：ch 开头的变量为 config 外部传入，c 开头的变量为此处定义
  *      在编写其他地方的代码时，必须使用从此处导出的变量以防止混乱
@@ -21,6 +21,12 @@
 @c-color-card-bg: #f7f7f7;
 @c-color-card-border: #f2f2f2;
 /* ----- 颜色 END ----- */
+
+/* ----- 背景 BEGIN ----- */
+@c-bg: @ch-bg;
+@c-bg-opacity: @ch-bg-opacity;
+@c-bg-filter: @ch-bg-filter;
+/* ----- 背景 END ----- */
 
 /* ---- 布局 BEGIN ---- */
 @c-layout-padding-lg: 18%; // 1280px+
