@@ -1,31 +1,34 @@
 {
-  "name": "crash-homepage",
-  "type": "module",
-  "version": "3.0.0-beta.4",
-  "author": "crrashh1542 <kotsuki@crrashh.com>",
-  "homepage": "https://www.crrashh.com",
-  "license": "Apache-2.0",
-  "private": true,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/crrashh1542/crash-homepage"
-  },
-  "bugs": {
-    "url": "https://github.com/crrashh1542/crash-homepage/issues"
-  },
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/tailwind": "^5.1.0",
-    "astro": "^4.8.2",
-    "less": "^4.2.0",
-    "normalize.css": "^8.0.1",
-    "sharp": "^0.33.3",
-    "tailwindcss": "^3.4.3"
-  }
+    "name": "crash-homepage",
+    "type": "module",
+    "version": "3.0.0-beta.4",
+    "author": "crrashh1542 <kotsuki@crrashh.com>",
+    "homepage": "https://www.crrashh.com",
+    "license": "Apache-2.0",
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/crrashh1542/crash-homepage"
+    },
+    "bugs": {
+        "url": "https://github.com/crrashh1542/crash-homepage/issues"
+    },
+    "scripts": {
+        "dev": "astro dev",
+        "start": "astro dev",
+        "build": "astro build",
+        "preview": "astro preview",
+        "astro": "astro",
+        "p:check": "prettier . --check",
+        "p:write": "prettier . --write"
+    },
+    "dependencies": {
+        "@astrojs/tailwind": "^5.1.0",
+        "astro": "^4.9.1",
+        "less": "^4.2.0",
+        "normalize.css": "^8.0.1",
+        "prettier": "^3.2.5",
+        "sharp": "^0.33.4",
+        "tailwindcss": "^3.4.3"
+    }
 }

@@ -18,15 +18,15 @@ export default defineConfig({
     // 开发配置
     server: {
         port: 14724,
-        host: true
+        host: true,
     },
     devToolbar: {
-        enabled: false
+        enabled: false,
     },
 
     // 生产配置
     build: {
-        assetsPrefix: custConfig.site.cdn
+        assetsPrefix: custConfig.site.cdn,
     },
 
     vite: {
@@ -37,9 +37,9 @@ export default defineConfig({
                     hashCharacters: 'hex',
                     assetFileNames: 'ch_assets/[name].[hash].[ext]',
                     entryFileNames: 'ch_assets/[name].[hash].js',
-                    chunkFileNames: 'ch_assets/[name].[hash].js'
-                }
-            }
+                    chunkFileNames: 'ch_assets/[name].[hash].js',
+                },
+            },
         },
 
         // 引入@作为./src的alias
@@ -47,7 +47,7 @@ export default defineConfig({
             alias: {
                 '@': fileURLToPath(new URL('./src', import.meta.url)),
                 '~': fileURLToPath(new URL('./config', import.meta.url)),
-            }
-        }
-    }
+            },
+        },
+    },
 })

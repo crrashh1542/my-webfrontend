@@ -11,9 +11,7 @@
         "baseUrl": ".",
         "paths": {
             "@/*": ["src/*"]
-        },
+        }
     },
-    "include": [
-        "src/**/*", "src/custom-object.d.ts"
-    ]
+    "include": ["src/**/*", "src/custom-object.d.ts"]
 }
