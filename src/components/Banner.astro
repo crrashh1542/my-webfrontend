@@ -80,7 +80,7 @@ import avatar from '@/assets/images/avatar.jpg'
     }
 
     // 响应式适配 ---- PC
-    @media screen and (min-width: 750px) {
+    @media screen and (min-width: 1024px) {
         :root {
             --banner-display: flex;
             --banner-avatar-size: 200px;
@@ -94,9 +94,23 @@ import avatar from '@/assets/images/avatar.jpg'
             --banner-button-padding: 13px;
         }
     }
-
+    // 响应式适配 ---- PAD
+    @media screen and (max-width: 1024px) {
+        :root {
+            --banner-display: flex;
+            --banner-avatar-size: 140px;
+            --banner-content-padding: 4rem;
+            --banner-title-size: 48px;
+            --banner-title-top: 8px;
+            --banner-desc-size: 20px;
+            --banner-desc-top: 16px;
+            --banner-social-top: 40px;
+            --banner-button-size: 24px;
+            --banner-button-padding: 13px;
+        }
+    }
     // 响应式适配 ---- 移动端
-    @media screen and (max-width: 750px) {
+    @media screen and (max-width: 700px) {
         :root {
             --banner-avatar-size: 120px;
             --banner-display: block;
@@ -105,9 +119,9 @@ import avatar from '@/assets/images/avatar.jpg'
             --banner-title-top: 16px;
             --banner-desc-size: 18px;
             --banner-desc-top: 12px;
-            --banner-social-top: 32px;
-            --banner-button-size: 21px;
-            --banner-button-padding: 10px;
+            --banner-social-top: 12px;
+            --banner-button-size: 20px;
+            --banner-button-padding: 6px;
         }
     }
 </style>

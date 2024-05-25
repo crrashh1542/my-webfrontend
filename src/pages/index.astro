@@ -95,16 +95,15 @@ const [isPropsEnablePercent] =
 	}
 
 	// 响应式适配 ---- PC
-	@media screen and (min-width: 1024px) {
-		body {
-			--main-padding-horiziontal: @c-layout-banner-padding;
-		}
+	@media screen and (min-width: 1280px) {
+		body { --main-padding-horiziontal: @c-layout-padding-lg; }
 	}
-
+   // 响应式适配 ---- PAD
+	@media screen and (max-width: 1280px) {
+		body { --main-padding-horiziontal: @c-layout-padding-md; }
+	}
 	// 响应式适配 ---- 移动端
-	@media screen and (max-width: 1024px) {
-		body {
-			--main-padding-horiziontal: 2em;
-		}
+	@media screen and (max-width: 800px) {
+		body { --main-padding-horiziontal: @c-layout-padding-sm; }
 	}
 </style>

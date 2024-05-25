@@ -32,12 +32,12 @@ const { customClass } = Astro.props
     }
 
     /* 响应式适配 ------- BEGIN */
-    @media screen and (max-width: 1280px) { /* 移动端 */
+    @media screen and (max-width: 1024px) { /* 移动端 */
         :root {
             --c-card-width: calc(100% - 1.5rem);
         }
     }
-    @media screen and (min-width: 1280px) { /* 桌面端 */
+    @media screen and (min-width: 1024px) { /* 桌面端 */
         :root {
             --c-card-width: calc(50% - 1.15rem);
         }

@@ -72,22 +72,21 @@ const { title, nav } = Astro.props;
     }
     
     // 响应式适配 ---- PC
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1280px) {
         :root {
-            --appbar-padding-horizontal: calc(@c-layout-padding - 5%);
+            --appbar-padding-horizontal: calc(@c-layout-padding-lg - 5%);
             --appbar-link-display: block;
         }
     }
-
     // 响应式适配 ---- PAD
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1280px) {
         :root {
             --appbar-padding-horizontal: 1em;
             --appbar-link-display: block;
         }
     }
     // 响应式适配 ---- 移动端
-    @media screen and (max-width: 750px) {
+    @media screen and (max-width: 800px) {
         :root {
             --appbar-link-display: none;
         }
