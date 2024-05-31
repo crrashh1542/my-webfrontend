@@ -43,7 +43,8 @@ const [isPropsEnablePercent] =
 		{ isGhChartEnabled && 
 			<div class="component-wrapper">
 				<Catalog>{ config.components.ghChart.title }</Catalog>
-				<GhChart username={ config.components.ghChart.username }></GhChart>
+				<GhChart api={ config.components.ghChart.api }
+                         username={ config.components.ghChart.username }></GhChart>
 			</div>
 		}
 

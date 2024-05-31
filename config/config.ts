@@ -48,6 +48,7 @@ export default {
     components: {
         ghChart: {
             title: '今天咕咕咕了没！',
+            api: 'https://chart.ymbit.cn',
             username: 'crrashh1542',
         },
         links: {

@@ -1,8 +1,9 @@
 ---
 interface Props {
+    api: string
     username: string
 }
-const { username } = Astro.props
+const { api, username } = Astro.props
 import Card from './Card.astro'
 ---
 
@@ -11,7 +12,7 @@ import Card from './Card.astro'
     
         <!-- 图片本体 -->
         <div class="img-placeholder py-2 hidden m-auto" id="gh-chart">
-            <img src={"https://ghchart.rshah.org/f59f17/" + username}
+            <img src={ api + "/f59f17/" + username}
                  alt="crrashh1542's GitHub chart"
                  class="m-auto" id="gh-chart-img" />
         </div>

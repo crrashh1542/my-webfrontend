@@ -39,6 +39,7 @@ config.ts 是咕咕主页的内容配置文件，按照下边对对象属性的�
 
 -   \*`isEnabled`：是否启用该组件，不写则默认启用。
 -   `title`：贡献表组件的小标题。
+-   `api`：使用的 API 地址。理论上本项目支持所有基于 [githubchart-api](https://github.com/2016rshah/githubchart-api) 的 API 站点，此处使用了一个公益加速的站点，也可以换回原开发者提供的 API：<https://ghchart.rshah.org/>。_注意需要加上 URL Scheme（就是 `https://` 那坨），且末尾不要多带一个 / 号。_
 -   `username`：要统计的 GitHub 用户名。
 
 #### `links`：外部网站链接
