@@ -23,7 +23,7 @@ import avatar from '@/assets/images/avatar.jpg'
         <!-- L3 - 社交链接 -->
         <div class="social">
             { social.map(item => (
-                <a href={ item.url } target="_blank" class={ 'button mr-3 rounded-md icon-'
+                <a href={ item.url } target="_blank" class={ 'button rounded-md icon-'
                      + item.icon }><div style="display: none;">{ item.icon }</div></a>
             )) }
         </div>
@@ -36,7 +36,7 @@ import avatar from '@/assets/images/avatar.jpg'
     // 基础样式
     .banner {
         display: var(--banner-display);
-        padding: 12em 0 10em;
+        padding: var(--banner-space);
 
         .avatar {
             width: var(--banner-avatar-size);
@@ -67,6 +67,7 @@ import avatar from '@/assets/images/avatar.jpg'
                 .button {
                     font-size: var(--banner-button-size);
                     padding: var(--banner-button-padding);
+                    margin-right: var(--banner-button-space);
                     background: @c-color-theme-light;
                     box-shadow: 0 0 4px @c-color-theme-light;
                     transition: box-shadow .4s;
@@ -79,26 +80,29 @@ import avatar from '@/assets/images/avatar.jpg'
         }
     }
 
-    // 响应式适配 ---- PC
-    @media screen and (min-width: 1024px) {
+    // 响应式适配 ---- 移动端
+    @media screen and (max-width: 700px) {
         :root {
-            --banner-display: flex;
-            --banner-avatar-size: 200px;
-            --banner-content-padding: 4rem;
-            --banner-title-size: 54px;
-            --banner-title-top: 8px;
-            --banner-desc-size: 20px;
-            --banner-desc-top: 16px;
-            --banner-social-top: 40px;
-            --banner-button-size: 28px;
-            --banner-button-padding: 13px;
+            --banner-display: block;
+            --banner-space: 9em 0 10em;
+            --banner-avatar-size: 130px;
+            --banner-content-padding: 0;
+            --banner-title-size: 36px;
+            --banner-title-top: 16px;
+            --banner-desc-size: 18px;
+            --banner-desc-top: 10px;
+            --banner-social-top: 28px;
+            --banner-button-size: 22px;
+            --banner-button-space: 9px;
+            --banner-button-padding: 11.5px;
         }
     }
     // 响应式适配 ---- PAD
-    @media screen and (max-width: 1024px) {
+    @media screen and (min-width: 700px) {
         :root {
             --banner-display: flex;
-            --banner-avatar-size: 140px;
+            --banner-space: 12em 0 10em;
+            --banner-avatar-size: 150px;
             --banner-content-padding: 4rem;
             --banner-title-size: 48px;
             --banner-title-top: 8px;
@@ -106,22 +110,20 @@ import avatar from '@/assets/images/avatar.jpg'
             --banner-desc-top: 16px;
             --banner-social-top: 40px;
             --banner-button-size: 24px;
+            --banner-button-space: 12px;
             --banner-button-padding: 13px;
         }
     }
-    // 响应式适配 ---- 移动端
-    @media screen and (max-width: 700px) {
+    // 响应式适配 ---- PC
+    @media screen and (min-width: 1024px) {
         :root {
-            --banner-display: block;
-            --banner-avatar-size: 120px;
-            --banner-content-padding: 0;
-            --banner-title-size: 40px;
-            --banner-title-top: 16px;
-            --banner-desc-size: 18px;
-            --banner-desc-top: 12px;
-            --banner-social-top: 12px;
-            --banner-button-size: 20px;
-            --banner-button-padding: 6px;
+            --banner-avatar-size: 200px;
+            --banner-title-size: 54px;
+            --banner-title-top: 8px;
+            --banner-desc-size: 20px;
+            --banner-desc-top: 16px;
+            --banner-social-top: 40px;
+            --banner-button-size: 28px;
         }
     }
 </style>
