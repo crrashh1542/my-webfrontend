@@ -6,7 +6,7 @@ interface Props {
 // 从 isMulti 内容判断是否真的需要设置为一行多列
 const { customClass } = Astro.props
 ---
-<div class={ 'card rounded-lg px-5 py-3 my-2 mr-4 inline-block '  + customClass }>
+<div class={ 'card rounded-lg px-5 py-3 my-2 inline-block '  + customClass }>
     <slot />
 </div>
 
@@ -19,6 +19,7 @@ const { customClass } = Astro.props
         border: 1px solid @c-color-card-border;
         transition: border .3s, box-shadow .3s;
         width: var(--c-card-width);
+        margin-right: var(--c-card-margin-right);
     }
     .card:hover {
         border: 1px solid @c-color-theme;
@@ -34,12 +35,14 @@ const { customClass } = Astro.props
     /* 响应式适配 ------- BEGIN */
     @media screen and (max-width: 1024px) { /* 移动端 */
         :root {
-            --c-card-width: calc(100% - 1.5rem);
+            --c-card-width: calc(100% - 8px); // 见 .card.w-full
+            --c-card-margin-right: 0;
         }
     }
     @media screen and (min-width: 1024px) { /* 桌面端 */
         :root {
-            --c-card-width: calc(50% - 1.15rem);
+            --c-card-width: calc(50% - 1.14rem);
+            --c-card-margin-right: 16px;
         }
     }
     /* 响应式适配 --------- END */
